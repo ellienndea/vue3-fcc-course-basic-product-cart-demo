@@ -109,13 +109,13 @@
                     <label>Quantity:</label>
                   </div>
                   <div class="cell">
-                    <input type="number" v-model="inventory.pineapples">
+                    <input type="number" v-model.number="inventory.pineapples">
                   </div>
                 </div>
               </form>
             </div>
             <div class="card-footer">
-              <button class="btn btn-light">Add to cart</button>
+              <button @click="addToCart('pineapples')" class="btn btn-light">Add to cart</button>
             </div>
           </div>
 
@@ -147,13 +147,13 @@
                     <label>Quantity:</label>
                   </div>
                   <div class="cell">
-                    <input type="number" v-model="inventory.cherries">
+                    <input type="number" v-model.number="inventory.cherries">
                   </div>
                 </div>
               </form>
             </div>
             <div class="card-footer">
-              <button class="btn btn-light">Add to cart</button>
+              <button @click="addToCart('cherries')" class="btn btn-light">Add to cart</button>
             </div>
           </div>
 
@@ -165,8 +165,8 @@
       </footer>
 
     </div>
-      
-    <script src="https://unpkg.com/vue@next"></script>
+      <!-- Import Vue.js -->
+     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
     <script>
       let app = Vue.createApp({
         data() {
@@ -185,6 +185,7 @@
         },
         methods: {
           addToCart(type) {
+            console.log("Hi");
             this.cart[type] += this.inventory[type]
             console.log(this.cart)
           }
